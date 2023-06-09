@@ -1,57 +1,18 @@
-cpr
-==============================
+# Contextualized Policy Recovery
 
-A short description of the project.
+This repository contains the code for replicating the results presented in the paper Modeling and *Interpreting Medical Decisions with Adaptive Imitation Learning*.
 
-Project Organization
-------------
+## Installation
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+```bash
+conda env create -f environment.yml
+conda activate cpr
+pip install --no-build-isolation --disable-pip-version-check -e .
+```
 
+## Experiments
+The code to run the experiments can be found in `src/ADNI_experiments.py` and `src/MIMIC_experiments.py` and is used to create `ADNI_results.txt` and `MIMIC_results.txt`
 
---------
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+## Data 
+1) ADNI: After getting Data access from the [Alzheimer's Disease Neuroimaging Initiative (ADNI)](https://adni.loni.usc.edu/), place the `ADNIMERGE.csv` file in the `data/adni/raw/` folder.
+2) MIMIC: After getting Data access for the [MIMIC-III Clinical Database](https://physionet.org/content/mimiciii/1.4/), follow the instruction for [installing it in a Postgres database](https://mimic.physionet.org/tutorials/install-mimic-locally-ubuntu/).
